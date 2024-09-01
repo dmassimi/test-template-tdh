@@ -5,8 +5,8 @@ metadata:
   title: Maven Command Template
   description: A template for running Maven commands
 spec:
-  owner: backstage/techdocs-core
-  type: service
+  owner: tibco-templates
+  type: bwce
 
   parameters:
     - title: Fill in Maven command details
