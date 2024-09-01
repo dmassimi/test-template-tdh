@@ -1,0 +1,39 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: maven-command-template
+  title: Maven Command Template
+  description: A template for running Maven commands
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
+  parameters:
+    - title: Fill in Maven command details
+      required:
+        - mavenCommand
+      properties:
+        mavenCommand:
+          title: Maven Command
+          type: string
+          description: The Maven command to run (e.g., 'clean install')
+
+  steps:
+    - id: fetch-base
+      name: Fetch Base
+      action: fetch:template
+      input:
+        url: ./content
+        values:
+          mavenCommand: ${{ parameters.mavenCommand }}
+
+    - id: run-maven
+      name: Run Maven Command
+      action: maven:run
+      input:
+        command: ${{ parameters.mavenCommand }}
+
+  output:
+    links:
+      - title: Maven Command Result
+        url: ${{ steps['run-maven'].output.resultUrl }}
