@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: example-templates-locations
+  name: example-templates-locations-dmassimi
 spec:
   targets:
     - test-dam-template.yaml
