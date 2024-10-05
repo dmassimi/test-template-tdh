@@ -5,4 +5,4 @@ metadata:
 spec:
   targets:
     - test-dam-template.yaml
-    - run-commands.yaml
+    - run-command.yaml
